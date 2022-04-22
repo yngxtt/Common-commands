@@ -52,7 +52,6 @@
 
     git remote add <remote> <url>       # 增加远程定义
     git remote rm origin                # 删除指定的远程仓库
-    
 
     git remote remove <remote>          # 删除指定的远程版本库
     git fetch <remote>                  # 从远程版本库获取代码
@@ -60,3 +59,5 @@
     git push <remote> <branch>          # 上传代码及快速合并
     git push <remote> :hotfixes/BJVEP9  # 删除远程仓库的hotfixes/BJVEP9分支
     git push --tags                     # 把所有标签推送到远程仓库
+
+### git
