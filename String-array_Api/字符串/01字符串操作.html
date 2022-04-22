@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>字符串造作</title>
+</head>
+<body>
+    <script>
+        let a = 'HelloWorld';
+        let b = 'World'
+        document.write('<h2>'+ a + '</h2>');
+        document.write('<h2>'+ b + '</h2>');
+//1.concat() 连接两个或多个字符串
+        // +左右可以为null，concat为会空指针。
+        // let c = a.concat(b);  //HelloWorldWorld
+        // let c = a + b;        //HelloWorldWorld
+//2. replace()：字符串替换或正则匹配替换
+        // let c  = a.replace("World","Hello");//HelloHello
+        // let c =  a.replace(/World/, "Hello") ;//HelloHello
+//3. slice()：通过指定开始和结束位置来截取字符串
+        // let c = a.slice(1)    //elloWorld
+        // let c = a.slice(1,5)  //ello
+        // let c = a.slice(-5)   //World
+        // let c = a.slice(-5,-2)  //Wor
+//4. split()：将字符串分割为字符串数组
+        // let c = b.split('') //c =  ['W', 'o', 'r', 'l', 'd']
+        // let c = b.split('r')   //['Wo', 'ld']
+//5. substring()：通过指定开始和结束位置来截取字符串
+        // let c = a.substring(1,5)  //ello
+        let c = a.substring(3)    //loWorld
+        console.log(c)
+        document.write('<h1>'+ c + '</h1>');
+    </script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>返回新数组</title>
+</head>
+<body>
+    <script>
+//1. concat() : 把传入的数组，或者元素+数组合并成一个新的数组，返回这个新数组
+    // let arr1 = [1,2,3]
+    // let arr2 = [4,5,6] 
+    // let newArr = arr1.concat(arr2)
+    // console.log(newArr) // [1, 2, 3, 4, 5, 6]
+
+//2. slice() : 截取数组，不会改变原数组
+    // let arr = [1,2,3,4,5]
+    // let newArr = arr.slice(0,3)
+    // console.log(newArr) // [1, 2, 3]
+    //如果不给第二个参数，那么就从第1个参数的位置截取到数组的最后
+
+//3. join() : 把数组中的元素连接成一个字符串并返回，不会改变原数组
+    // let arr = [1,2,3,4,5]
+    // let Str1 = arr.join('')
+    // console.log(arr) // [1, 2, 3, 4, 5]
+    // console.log(Str1) // '12345'
+    // let Str2 = arr.join(',')
+    // console.log(Str2) // '1,2,3,4,5'
+
+//4.indexOf（）：查找元素在数组中第一次出现时的索引，如果没有就返回-1
+    // let arr = [1,2,3,4,5,4,3,2,1]
+    // let num = arr.indexOf(3)
+    // console.log(num) // 2
+
+//5. astIndexOf（）: 查找元素在数组中最后一次出现时的索引，如果没有就返回-1
+    let arr = [1,2,3,4,5,4,3,2,1]
+    let num = arr.lastIndexOf(3)
+    console.log(num) // 6
+    </script>
+
+
+</body>
+</html>

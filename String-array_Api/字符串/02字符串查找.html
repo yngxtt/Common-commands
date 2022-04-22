@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>字符串查找</title>
+</head>
+<body>
+    <script>
+        let a = 'HelloWorld';
+        let b = 'World'
+        document.write('<h2>'+ a + '</h2>');
+        document.write('<h2>'+ b + '</h2>');
+//1. charAt  返回指定位置的字符
+        // let c = a.charAt(5);  //w
+//2. charCodeAt()：取得指定位置字符的 Unicode 编码
+        // let c = a.charCodeAt(5); //87
+//3. indexOf  返回字符串中一个子串第一处出现的索引（从左到右搜索）。如果没有匹配项，返回 -1 
+        // let c = a.indexOf(b)  //5
+   
+// 4.lastIndexOf  返回字符串中一个子串最后一处出现的索引（从右到左搜索），如果没有匹配项，返回 -1
+        // let c = a.lastIndexOf('l')   //8
+        let c = a.lastIndexOf('l',5)   //3
+        //第二个参数： 指定开始检索的位置，如省略该参数，则将从字符串的最后一个字符开始检索
+        console.log(c)
+        document.write('<h1>'+ c + '</h1>');
+    </script>
+</body>
+</html>
