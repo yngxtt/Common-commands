@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AJAX JSON</title>
+    <style>
+        #result {
+            width: 360px;
+            height: 160px;
+            border: solid 2px #f99;
+            color: cyan;
+            line-height: 160px;
+            font-size: 26px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<div id="result"></div>
+<SCRIPT>
+    const result = document.querySelector('#result');
+    window.addEventListener('keydown',function (){
+       const xhr = new XMLHttpRequest();
+       //设置响应体数据类型
+        xhr.responseType = 'json';
+       xhr.open('GET','http://127.0.0.1:8000/json-server');
+       xhr.send();
+        //4.绑定响应事件
+        xhr.onreadystatechange=function (){
+            if(xhr.readyState === 4) {
+                if(xhr.status >=200 && xhr.status < 300) {
+                    console.log(xhr.response);
+                    //手动对数据转行
+                    // let data = JSON.parse(xhr.response);
+                    //自动装  设置接受数据为JSON数据类型
+                    result.innerHTML = xhr.response.name;
+
+                }
+            }
+        }
+    })
+</SCRIPT>
+</body>
+</html>

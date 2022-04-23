@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>fetch</title>
+  <style>
+    button {
+      background-color: #fff;
+      border: aqua solid 1px;
+      border-radius: 3px;
+      margin: 0 30px;
+    }
+    button:hover {
+      background-color: aqua;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <button>发请求</button>
+  <script>
+    const btn = document.querySelector('button');
+    btn.addEventListener('click',function () {
+        fetch('http://127.0.0.1:8000/fetch-all?vip=100', {
+            //请求方法
+            method: 'POST',
+            //请求头
+            headers: {
+                name: 'LOVE'
+            },
+            //请求体
+            body: 'username=admin&password=admin'
+        }).then(response => {
+            return response.json();
+        }).then(response => {
+          console.log(response);
+            console.log(response.name);
+        })
+    })
+  </script>
+</body>
+</html>

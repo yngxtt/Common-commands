@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>jquery ajax</title>
+  <script crossorigin="anonymous"  src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js"></script>
+  <style>
+    button {
+      background-color: #fff;
+      border: aqua solid 1px;
+      border-radius: 3px;
+      margin: 0 30px;
+    }
+    button:hover {
+      background-color: aqua;
+      color: white;
+    }
+
+    div{
+      width: 360px;
+      height: 100px;
+      border: aqua solid 1px;
+    }
+  </style>
+</head>
+
+<body>
+<h1>jquery发送ajax请求</h1>
+<button>get</button>
+<button>post</button>
+<button>普通Ajax</button>
+<script>
+  $('button').eq(0).click(function (){
+    $.get('http://127.0.0.1:8000/jqueryAll',{a:100,b:200},function (data){
+      console.log(data);
+    },'json');
+  });
+  $('button').eq(1).click(function (){
+    $.post('http://127.0.0.1:8000/jquery',{a:100,b:200},function (data){
+      console.log(data);
+    });
+  });
+  $('button').eq(2).click(function (){
+    $.ajax({
+      ulr:'http://127.0.0.1:8000/jqueryAll',
+      data:{a:100,b:200},
+      type:'GET',
+      dataType:'json',
+      //成功回调
+      success: function (data){
+        console.log(data);
+      },
+      timeout:2000,
+      //失败回调
+      error:function () {
+
+      },
+      //头信息
+      headers:{
+        c:300,
+        d:200,
+      }
+    },'json');
+  });
+</script>
+</body>
+</html>

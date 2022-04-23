@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>取消请求</title>
+  <style>
+    .result{
+      width: 300px;
+      height: 160px;
+      border: solid 2px #f99;
+      color: cyan;
+      line-height: 160px;
+      font-size: 36px;
+      text-align: center;
+      overflow: scroll;
+    }
+
+    /*修改滚动条样式*/
+    ::-webkit-scrollbar{
+      width:10px;
+      height:10px;
+      /**/
+    }
+    ::-webkit-scrollbar-track{
+      background: rgb(239, 239, 239);
+      border-radius:2px;
+    }
+    ::-webkit-scrollbar-thumb{
+      background: #bfbfbf;
+      border-radius:10px;
+    }
+    ::-webkit-scrollbar-thumb:hover{
+      background: #333;
+    }
+    ::-webkit-scrollbar-corner{
+      background: #179a16;
+    }
+  </style>
+</head>
+
+<body>
+<button>发送请求</button>
+<button>取消请求</button>
+<div class="result"></div>
+<div class="result"></div>
+<div class="result"></div>
+<div class="result"></div>
+<div class="result"></div>
+<div class="result"></div>
+<div class="result"></div>
+<div class="result"></div>
+<div class="result"></div>
+<div class="result"></div>
+<div class="result"></div>
+
+
+<script>
+  //获取button元素
+  const btns = document.querySelectorAll('button');
+  const result = document.querySelector(".result");
+  //绑定事件
+  //发生请求
+  let xhr = new XMLHttpRequest();
+  btns[0].addEventListener('click' ,function(){
+    xhr.open('GET','http://127.0.0.1:8000/ie');
+    //3. 发送
+    xhr.send();
+    xhr.onreadystatechange = function(){
+      if(xhr.readyState === 4){
+        if(xhr.status >= 200 && xhr.status < 300){
+          result.innerHTML = xhr.response +','+ xhr.status;
+        }else{
+
+        }
+      }
+    }
+  })
+  //取消请求
+  btns[1].addEventListener('click',function(){
+    xhr.abort();
+  })
+</script>
+</body>
+</html>
