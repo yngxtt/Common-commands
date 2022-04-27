@@ -1,0 +1,16 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+#wrap {
+  position: relative;
+  width: 960px;
+  height: 600px;
+  border: 1px solid salmon;
+  margin: 0 auto;
+}
+#wrap .inner1 {
+  border-width: 60px;
+  border-color: #ffff00 transparent transparent transparent;
+  border-style: solid  dashed  dashed dashed;
+}

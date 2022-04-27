@@ -1,0 +1,38 @@
+
+// .inner {    //普通混合
+// .inner() {    //不带参数混合
+// .inner(@w,@h,@c) {    //带参数混合
+.inner(@w:50px,@h:50px,@c:#f10566) {    //带参数混合,且有默认值
+    margin: 0 auto;
+    margin: auto;
+    background-color: @c;
+    height: @h;
+    width: @w;
+    border: #0000ff 1px solid;
+}
+
+
+@selector:#wrap;//选择器
+* {
+    margin: 0;
+    padding: 0;
+}
+
+@{selector} {
+    position: relative;
+    width: 300px;
+    height: 400px;
+    border: 1px solid salmon;
+    margin: 0 auto;
+
+    .inner1 {
+       .inner();
+
+        &:hover {
+            background-color: #F00fff;
+        }
+    }
+    .inner2 {
+        .inner(@c:#000);
+    }
+}
