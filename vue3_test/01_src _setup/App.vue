@@ -22,8 +22,6 @@ export default {
     name,
     hello
   }
-  //一个渲染函数
-  // return () => {return h('h1','mane')}
  }
 }
 </script>

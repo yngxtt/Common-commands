@@ -1,6 +1,4 @@
 <template>
-  <h1>@</h1>
- 
   <input type="text" v-model="m" >
   <h1>{{m}}</h1>
 </template>
@@ -12,7 +10,6 @@ import {ref,customRef} from 'vue'
 export default {
   nane:"App",
   components: { demo },
-
   setup() {
     //自定义ref
     let timer  
