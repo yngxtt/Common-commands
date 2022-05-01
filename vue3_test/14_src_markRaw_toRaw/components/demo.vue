@@ -5,17 +5,13 @@
 <button @click="age++">age++</button>
 <button @click="a.b.c++">c++</button>
 <hr>
-<h1>---y:{{y}}----z.a{{z.a}}</h1>
-<button @click="y++">y++</button>
-<button @click="z.a++">z.a++</button>
-
-
+<button @click="show">show</button>
 
 
 </template>
 
 <script>
-import {reactive,toRefs, readonly,shallowReadonly} from 'vue'
+import {reactive,toRefs, toRaw,markRaw} from 'vue'
 export default {
   name: 'demo',
   setup(){
@@ -28,18 +24,18 @@ export default {
         }
       }
     })
-    data = readonly(data)
-    let x = reactive({
-      y:0,
-      z:{
-        a:0
-      }
-    })
-     x = shallowReadonly(x)
     
+  function show() {
+    console.log(data)
+    const d = toRaw(data)
+    console.log(d) 
+     const D = markRaw(data)
+    console.log(D) 
+  }
+  
    return {
     ...toRefs(data),
-    ...toRefs(x)
+    show
    }
   }
 }
