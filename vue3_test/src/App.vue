@@ -21,10 +21,9 @@ const Child = defineAsyncComponent(() => import('./components/Child.vue'))
 export default {
   nane:"App",
   components: { Child },
-
   setup() {
     return {
-         
+        
     }
   }
 }
