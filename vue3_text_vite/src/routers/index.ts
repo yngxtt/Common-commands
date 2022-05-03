@@ -1,10 +1,10 @@
-import { createRouter,createWebHashHistory} from 'vue-router'
+import { createRouter,createWebHashHistory,RouteRecordRaw} from 'vue-router'
 
 import Home from '../components/Home.vue'
 import Login from '../components/Login.vue'
 import My from '../components/My.vue'
 
-const routes = [
+const routes: Array<RouteRecordRaw> = [
     {
         path:'/',
         redirect:"/home"
