@@ -2,15 +2,18 @@
   <h1>Home组件</h1>
   <div>
     <div>
-      <input type="text" v-model="keyWord"><button @click="go">搜索</button>
-      <div v-for="(item,index) in result">{{item.name}}</div>
-      <h1>{{stare.name}}</h1><button @click="addName">TEST</button>
-      <h2></h2>
+      <input type="text" v-model="keyWord"><button @click="getSongs">搜索</button>
+      <div v-for="(item,index) in stare.song">
+        <img :src="item.artists[0].img1v1Url" :alt="item.name">
+        <span>{{item.name}}</span>
+        <span>{{item.id}}</span></div>
+      
+      <button @click="addName">TEST</button>
     </div>
   </div>
 </template>
 
-<script  setup>
+<script  lang="ts" setup>
 import { getBeeList , test} from '../apis/api'
 import { ref ,reactive,toRefs , onMounted} from 'vue'
 import { useTestStore } from '../store/index'
@@ -50,15 +53,14 @@ import {storeToRefs} from 'pinia'
       // alert(name+','+age)
 
       stare.setTestName()
-
     }
     
     
 
     const go =   () => {
-     getBeeList(key).then((req)=>{
-       Songs.data = req.data 
-       console.log(Songs)
+     return new Promise((resolve)=>{
+       const resvt = getBeeList(keyWord.value)
+       resolve(resvt)
      }).catch((err)=>{
        console.log(err)
      })
@@ -70,12 +72,25 @@ import {storeToRefs} from 'pinia'
       
     }
     // console.log(Songs)
-    
+      const getSongs = async () => {
+      
+            const result = await go()
+            stare.song = result.data.result.songs
+            console.log( stare.song)
+      }
 
   
 
 </script>
 
 <style>
+img {
+  width: 50px;
+  height: 50px;
+  border-radius: 25px;
+}
+span {
+  font-size: 50px;
+}
 
 </style>

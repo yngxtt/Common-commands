@@ -23,8 +23,9 @@ const Login = ():Promise<User> => {
 export const useTestStore = defineStore(Names.TEST,{
     state: () => {
         return {
-            name:'zhangSan',
-            age:18
+            name: 'zhangSan',
+            age: 18,
+            song: null
         }
     },
 
