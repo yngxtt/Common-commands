@@ -25,7 +25,8 @@ export const useTestStore = defineStore(Names.TEST,{
         return {
             name: 'zhangSan',
             age: 18,
-            song: null
+            song: null,
+            songUrl: null
         }
     },
 
