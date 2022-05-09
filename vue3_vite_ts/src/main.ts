@@ -1,8 +1,12 @@
 import { createApp } from 'vue'
 import App from './App.vue'
-import './index.css'
 import router from './routers/index'
 import { createPinia } from 'pinia'
-const store = createPinia()
 
-createApp(App).use(router).use(store).mount('#app')
+const store = createPinia()
+import { Button , List , Search} from 'vant';
+
+
+
+
+createApp(App).use(router).use(store).use(List).use(Button).use(Search).mount('#app')

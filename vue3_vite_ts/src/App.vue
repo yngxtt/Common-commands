@@ -1,27 +1,18 @@
 <template>
-  <div>
+  <div class="app">
     <button @click="goHome">Home</button>
     <button @click="goLogin">Login</button>
-    <button @click="goMy">My</button>
+    <button @click="goMy">Mine</button>
   </div>
   <router-view></router-view>
 </template>
 
-<script>
-import Home from './components/Home.vue'
-import Login from './components/Login.vue'
-import My from './components/My.vue'
-import {useRouter} from 'vue-router'
+<script setup lang="ts">
+// This starter template is using Vue 3 <script setup> SFCs
+// Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
 
-export default {
-  name: 'App',
-  components: {
-   Home,
-   Login,
-   My
-  },
- 
-  setup(){
+    import {useRouter} from 'vue-router'
+
     const router = useRouter()
     function goHome () {
       router.push({path:'/home'})
@@ -32,16 +23,15 @@ export default {
     function goMy() {
        router.push({path:'/my'})
     }
-    return {
-      goLogin,
-      goHome,
-      goMy
-    }
-  }
-  
-}
+
+
 </script>
+
 <style scoped>
+.app {
+  display: flex;
+  justify-content: center;
+}
   button {
     margin: 10px;
     border: 0;
@@ -50,3 +40,6 @@ export default {
     color: #fff;
   }
 </style>
+
+
+
