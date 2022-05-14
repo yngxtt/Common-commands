@@ -61,14 +61,49 @@ interface iHao {
     age: number
     statureHeight: number
     weight?: number     // ?  可选，不强制
+    [propname: string] : any   //可以自主增加
+    sayFn(): string
 }
 const hao = {
     name: 'zhangSan',
     age: 20,
-    statureHeight: 180
+    statureHeight: 180,
+    sex: '女',
+    sayFn() {
+        return 'Hello !'
+    }
 }
 function Hao(hao:iHao) {
     console.log(hao.name + ',' + hao.age + ',' + hao.statureHeight)
+    console.log(hao.sex)
+    return hao.sex ? hao.sex : hao.age
 }
 Hao(hao)
+
+//类 - 接口
+class hello implements iHao {
+    name: 'zhangSan'
+    age: 20
+    statureHeight: 180
+    sex: '女'
+    sayFn() {
+        return 'Hello !'
+    }
+}
+//类 - 继承
+class plus extends iHao {
+    name: 'zhangSan'
+    age: 20
+    statureHeight: 180
+    sex: '女'
+    sayFn() {
+        return 'Hello !'
+    }
+    good () {
+        console.log(this.name)
+    }
+}
+
+const Plus = new plus()
+Plus.good()
 
