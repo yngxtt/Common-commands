@@ -105,5 +105,5 @@ class plus extends iHao {
 }
 
 const Plus = new plus()
-Plus.good()
+
 
