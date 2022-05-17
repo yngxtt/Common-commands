@@ -6,7 +6,6 @@
 <script>
 import demo from './components/demo.vue'
 import {ref} from 'vue'
-// import {h} from 'vue'
 export default {
   nane:"App",
   components: { demo },

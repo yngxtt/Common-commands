@@ -8,12 +8,16 @@ export default {
   name: 'helloworld',
   setup(){
     console.log('setup')
+    const test = () => {}
     onBeforeMount(()=>{console.log('onBeforeMount')})
     onMounted(()=>{console.log('onMounted')})
     onBeforeUnmount(()=>{console.log('onBeforeUnmount')})
     onUpdated(()=>{console.log('onUpdated')})
     onBeforeUpdate(()=>{console.log('onBeforeUpdate')})
-    onUnmounted(()=>{console.log('onUnmounted')})
+    onUnmounted(
+      ()=>{console.log('onUnmounted')},
+      test()
+    )
    
   }
 }
