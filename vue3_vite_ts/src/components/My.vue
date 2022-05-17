@@ -179,8 +179,7 @@ const store = useTestStore()
         newArr.arr = []
         newArr.arr = store.listData.filter((item)=>{
             if(item.select === true) {
-                console.log(item )
-                
+                console.log(item )   
                 return item
             }
         })
