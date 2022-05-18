@@ -85,8 +85,6 @@ import {storeToRefs} from 'pinia'
     }
     
 
-  
-
 </script>
 
 <style>
