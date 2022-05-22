@@ -85,3 +85,49 @@ var Girl = /** @class */ (function () {
 var girl = new Girl(18);
 girl.age = 20;
 console.log(girl.age);
+//只读属性
+var Preson2 = /** @class */ (function () {
+    function Preson2(name) {
+        this._name = name;
+    }
+    return Preson2;
+}());
+var person2 = new Preson2('zhanSan');
+console.log(person2._name);
+// 抽象类
+var helloX = /** @class */ (function () {
+    function helloX() {
+    }
+    return helloX;
+}());
+var helloA = /** @class */ (function (_super) {
+    __extends(helloA, _super);
+    function helloA() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    helloA.prototype.hello = function () {
+        console.log('B');
+        return 'h';
+    };
+    return helloA;
+}(helloX));
+var helloB = /** @class */ (function (_super) {
+    __extends(helloB, _super);
+    function helloB() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    helloB.prototype.hello = function () {
+        console.log('C');
+    };
+    return helloB;
+}(helloX));
+var helloC = /** @class */ (function (_super) {
+    __extends(helloC, _super);
+    function helloC() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    helloC.prototype.hello = function () {
+        console.log('C');
+    };
+    return helloC;
+}(helloX));

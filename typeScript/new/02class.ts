@@ -66,3 +66,36 @@ class Girl {
 const girl = new Girl(18)
 girl.age = 20
 console.log(girl.age)
+
+//只读属性
+class Preson2 {
+    public readonly _name: string //只读属性
+    constructor(name:string) {
+        this._name = name
+    }
+}
+const person2 = new Preson2 ('zhanSan')
+console.log(person2._name)
+
+// 抽象类
+abstract  class helloX {
+    abstract hello()
+}
+
+class helloA extends helloX {
+    hello() {
+        console.log('B') 
+    }
+}
+
+class helloB extends helloX {
+    hello() {
+        console.log('C')
+    }
+}
+
+class helloC extends helloX {
+    hello() {
+        console.log('C')
+    }
+}

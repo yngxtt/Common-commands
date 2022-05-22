@@ -22,6 +22,21 @@ http://www.5idev.com/p-javascript_events.shtml
 ## ico
 https://icomoon.io/
 
+## 动画库
+https://animate.style/
+
+## Bootstrap
+https://v4.bootcss.com/docs/components/pagination/
+
+## MDN
+https://developer.mozilla.org/zh-CN/
+
+## 移动端滚动
+http://www.mescroll.com/
+
+## js对象
+http://www.5idev.com/p-javascript_location.shtml
+
 ## vant UI 改变样式
 https://blog.csdn.net/weixin_48774523/article/details/111770822
 
