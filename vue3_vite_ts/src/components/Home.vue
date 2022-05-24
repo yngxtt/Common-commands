@@ -80,7 +80,7 @@ import {storeToRefs} from 'pinia'
       const getSongUrl = async (id) => {
         const result = await songIdSearch(id)
         stare.songByUrlData = result.data
-        stare.songUrl =  stare.songByUrlData.data[0].url
+        stare.songUrl =  stare.songByUrlData.data[0].url 
         console.log( stare.songByUrlData.data[0].url )
     }
     
