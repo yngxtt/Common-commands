@@ -1,13 +1,16 @@
 <template>
   <h1>Login组件</h1>
   <button @click="Hello">test</button>
+  <input type="text" v-model="val">
 </template>
 
 <script setup lang = "ts">
-import { ref, onMounted } from 'vue'
+import { ref, onMounted , watch} from 'vue'
 const hello = ref('Hello world!')
 
-  const OLD = [
+let val = ref(0)
+
+const OLD = [
     {
       a: 0,
       b:[
@@ -108,6 +111,17 @@ const NEW = [
   }
 onMounted (()=>{ 
 })
+watch (val,(newValue)=>{
+  let i = 0
+  const zz = /[0-9/-/.]{1,9}\.[0-9]{0,2}/
+   const zzPlus = /[\-]?(\d{0,9})[\.]?(\d{0,2})/
+   i++
+  if(zzPlus.test(newValue.toString())) {
+    console.log('yes!,'+ i)
+  } else {
+  console.log('no!,' + i)
+  }
+}) 
 </script>
 <style>
 
