@@ -116,7 +116,7 @@ watch (val,(newValue)=>{
   const zz = /[0-9/-/.]{1,9}\.[0-9]{0,2}/
    const zzPlus = /[\-]?(\d{0,9})[\.]?(\d{0,2})/
    i++
-  if(zzPlus.test(newValue.toString())) {
+  if(zzPlus .test(newValue.toString())) {
     console.log('yes!,'+ i)
   } else {
   console.log('no!,' + i)
