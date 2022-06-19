@@ -4,6 +4,7 @@
   <!-- <login/> -->
   <!-- <t-test/> -->
   <mine></mine>
+  <test/>
   </div>
 </template>
 
@@ -11,16 +12,18 @@
 // import login from './components/login.vue'
 // import Home from './components/Home.vue'
 import mine from './components/mine.vue'
+import test from './components/test.vue'
 // import tTest from './components/test'
 
 export default {
   name: 'App',
   
   components: {
-  //  Home,
-  //  login
-  // tTest
-  mine
+    //  Home,
+    //  login
+    // tTest
+    mine,
+    test
   }
 }
 </script>
@@ -37,9 +40,6 @@ body {
     border: seagreen solid 5px;
     border-radius: 60px;
     text-align: center;
-  }
-  .info {
-
   }
   .text {
     line-height: 600px;
