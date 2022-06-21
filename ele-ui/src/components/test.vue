@@ -35,10 +35,28 @@ export default {
             return obj
         },
         async test() {
-            await this['trimTest'](this.str)
+            const testData = {
+                a: '    111111111      ',
+                b: {
+                    b1: '   222222        ',
+                    b2: '        3333333333',
+                    b3: {
+                        a: '111   ',
+                        b: '      222',
+                        c: {
+                            c1: '     haha'
+                        }
+                    }
+                },
+                c: [{ CC1: '   AA  '   , cc2: '     111'}, '    aaa    ',  'aaaa   '],
+                d: ['   aa   ', '     bbb', 'ccc   ']
+            }
+            await this['trimTest'](testData)
             //  console.log(await this['trimTest'](this._data))
             // console.log(this._data)
-             console.log(this.str)
+             console.log(testData)
+             const Arr = ''
+             console.log(typeof Arr)
         },
         trimTest(val) {
             // // console.log(this[val])
