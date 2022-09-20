@@ -3,7 +3,8 @@
   <!-- <Home/> -->
   <!-- <login/> -->
   <!-- <t-test/> -->
-  <mine></mine>
+  <!-- <mine></mine> -->
+  <Table></Table>
   <test/>
   </div>
 </template>
@@ -11,8 +12,9 @@
 <script>
 // import login from './components/login.vue'
 // import Home from './components/Home.vue'
-import mine from './components/mine.vue'
+// import mine from './components/mine.vue'
 import test from './components/test.vue'
+import Table from './components/el-table'
 // import tTest from './components/test'
 
 export default {
@@ -22,7 +24,8 @@ export default {
     //  Home,
     //  login
     // tTest
-    mine,
+    // mine,
+    Table,
     test
   }
 }
