@@ -10,7 +10,7 @@
         :label="column.label">
         <template slot-scope="scope">
           <!-- <div v-if="column.format" v-html="column.format(scope.row)"></div> -->
-          <cmp v-if="column.format" :html="column.format(scope.row)"></cmp>
+          <test v-if="column.format" :html="column.format(scope.row)"/>
           <div v-else>{{ scope.row[column.prop] }}</div>
         </template>
       </el-table-column>
@@ -19,19 +19,17 @@
 </template>
 
 <script>
-// import test from './test.vue'
-import Vue from 'vue';
+import test from './test.vue'
 export default {
   components: {
+    test,
     cmp: {
-            props: [
-                'html'
-            ],
-            render() {
-                const com = this.html
-                return com
-            }
-        }
+      props: [ 'html' ],
+      render() {
+        const com = this.html
+        return com
+      }
+    }
   },
   data() {
     this.columns = [
@@ -40,15 +38,31 @@ export default {
         prop: 'name',
         format: (data) => {
           return (
-            <el-button>{data.name}</el-button>
+            <el-button onclick="fn">{data.name}</el-button>
           )
         }
       },{
         label: '年龄',
         prop: 'age'
       },{
+        label: '性别',
+        prop: 'sex',
+        format: (data) => {
+          let sex = '女'
+          if (data.sex === 1) sex ='男'
+          return (
+            <span>{ sex }</span>
+          )
+        }
+      },{
         label: '薪资',
-        prop: 'money'
+        prop: 'money',
+        format: (data) => {
+          const money = (data.money / 100).toFixed(2)
+          return (
+            <span>￥{ money }</span>
+          )
+        }
       },{
         label: '照片',
         prop: 'imgUrl',
@@ -64,25 +78,40 @@ export default {
         {
           name: '张三',
           age: '18',
+          sex: 1,
           money: '1800000',
           imgUrl: 'https://tse2-mm.cn.bing.net/th/id/OIP-C.r5Bbfw1AZAW-hEmYwKOexQAAAA?w=171&h=180&c=7&r=0&o=5&pid=1.7'
         },{
           name: '李四',
           age: '19',
+          sex: 1,
           money: '1900000',
           imgUrl: 'https://tse2-mm.cn.bing.net/th/id/OIP-C.3DbLGUOE8q7IBMtiESsTYwAAAA?w=182&h=192&c=7&r=0&o=5&pid=1.7'
         },{
           name: '王五',
           age: '20',
+          sex: 2,
           money: '2100000',
           imgUrl: 'https://tse4-mm.cn.bing.net/th/id/OIP-C.KahOuGe_dbUyfn3zsafjLAAAAA?w=204&h=204&c=7&r=0&o=5&pid=1.7'
         },{
           name: '赵六',
           age: '25',
+          sex: 1,
           money: '3000000',
+          imgUrl: 'https://tse2-mm.cn.bing.net/th/id/OIP-C.pwe6d0WIGGDJli8WhKduPAAAAA?w=204&h=204&c=7&r=0&o=5&pid=1.7'
+        },{
+          name: '周七',
+          age: '29',
+          sex: 2,
+          money: '4000000',
           imgUrl: 'https://tse2-mm.cn.bing.net/th/id/OIP-C.pwe6d0WIGGDJli8WhKduPAAAAA?w=204&h=204&c=7&r=0&o=5&pid=1.7'
         }
       ]
+    }
+  },
+  methods: {
+    fn() {
+      alert(hel)
     }
   }
 }
