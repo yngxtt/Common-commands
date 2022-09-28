@@ -4,7 +4,7 @@
   <!-- <login/> -->
   <!-- <t-test/> -->
   <!-- <mine></mine> -->
-  <Table></Table>
+  <!-- <Table></Table> -->
   <test/>
   </div>
 </template>
@@ -13,7 +13,7 @@
 // import login from './components/login.vue'
 // import Home from './components/Home.vue'
 // import mine from './components/mine.vue'
-import test from './components/test.vue'
+import test from './components/test'
 import Table from './components/el-table'
 // import tTest from './components/test'
 

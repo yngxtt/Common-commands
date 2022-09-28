@@ -1,7 +1,13 @@
 <template>
   <div class="test">
-    <el-input v-model="form.value" @change="test(val)"></el-input>
-    <h1>{{ test(form.value) }}</h1><el-button @click="removeTrim(form)">计算</el-button>/ <el-button @click="test">test</el-button>
+    <div>
+        <el-radio-group v-model="radio" ref="test">
+            <el-radio :label="1">备选项1</el-radio>
+            <el-radio :label="2">备选项2</el-radio>
+            <el-radio :label="3">备选项3</el-radio>
+        </el-radio-group>
+        <el-button @click="test">tab</el-button>
+    </div>
   </div>
 </template>
 
@@ -13,16 +19,21 @@ export default {
              value: ''
            },
            testData: {
-            a: '112 23  ',
-            b: 'Ab       ',
-            c: {
-                c1: ' 11   ',
-                c2: '222    '
-            },
-            d: ['   11  ', ' 3333  ', '  43534535 ']
+                a: '112 23  ',
+                b: 'Ab       ',
+                c: {
+                    c1: ' 11   ',
+                    c2: '222    '
+                },
+                d: ['   11  ', ' 3333  ', '  43534535 ']
            },
-           str: '  1243   '
+           str: '  1243   ',
+           radio: 1
         }
+    },
+    mounted() {
+        this.radio = 2
+        console.log(this.$refs.test)
     },
     methods: {
         removeTrim(obj) {
@@ -33,30 +44,6 @@ export default {
             }
             console.log(obj)
             return obj
-        },
-        async test() {
-            const testData = {
-                a: '    111111111      ',
-                b: {
-                    b1: '   222222        ',
-                    b2: '        3333333333',
-                    b3: {
-                        a: '111   ',
-                        b: '      222',
-                        c: {
-                            c1: '     haha'
-                        }
-                    }
-                },
-                c: [{ CC1: '   AA  '   , cc2: '     111'}, '    aaa    ',  'aaaa   '],
-                d: ['   aa   ', '     bbb', 'ccc   ']
-            }
-            await this['trimTest'](testData)
-            //  console.log(await this['trimTest'](this._data))
-            // console.log(this._data)
-             console.log(testData)
-             const Arr = ''
-             console.log(typeof Arr)
         },
         trimTest(val) {
             // // console.log(this[val])
@@ -78,6 +65,9 @@ export default {
                 }
             // }
             return val
+        },
+        test() {
+            this.radio < 3 ? this.radio++ : this.radio = 1
         }
     }
 }
