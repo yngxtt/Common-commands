@@ -1,13 +1,16 @@
 <template>
   <div class="test">
     <div>
-        <el-radio-group v-model="radio" ref="test">
-            <el-radio :label="1">备选项1</el-radio>
-            <el-radio :label="2">备选项2</el-radio>
-            <el-radio :label="3">备选项3</el-radio>
-        </el-radio-group>
-        <el-button @click="test">tab</el-button>
+        <el-button @click="test">test</el-button>
     </div>
+    <div v-if="colmns.length > 0">
+        <el-table>
+            <el-table-column v-for="item in colmns" :key="item.pops" :label="item.key">
+
+            </el-table-column>
+        </el-table>
+    </div>
+    <div v-else>NO DATA!</div>
   </div>
 </template>
 
@@ -15,59 +18,64 @@
 export default {
     data() {
         return {
-           form: {
-             value: ''
-           },
-           testData: {
-                a: '112 23  ',
-                b: 'Ab       ',
-                c: {
-                    c1: ' 11   ',
-                    c2: '222    '
-                },
-                d: ['   11  ', ' 3333  ', '  43534535 ']
-           },
-           str: '  1243   ',
-           radio: 1
+           testData: [
+             {
+                key: '姓名',
+                pops: 'userName'
+             },
+             {
+                key: '年龄',
+                pops: 'age'
+             },
+             {
+                key: '薪水',
+                pops: 'money',
+                isM: true
+             }
+           ],
+           colmns: [],
+           tableData: [
+            {
+                userName: '张三',
+                age: 18,
+                money: 1200000
+            },
+            {
+                userName: '李四',
+                age: 20,
+                money: 2000000
+            },
+            {
+                userName: '王五',
+                age: 22,
+                money: 1500000
+            }
+           ]
         }
     },
     mounted() {
-        this.radio = 2
-        console.log(this.$refs.test)
+       
     },
     methods: {
-        removeTrim(obj) {
-            for(const key in obj) {
-                if(typeof  obj[key] === 'string') {
-                    obj[key] = obj[key].trim().trimEnd()
-                }
-            }
-            console.log(obj)
-            return obj
-        },
-        trimTest(val) {
-            // // console.log(this[val])
-            // if(typeof val === 'string') {
-            //    this._data[val] = val.trim().trimEnd()
-            //    val =  this[val]
-            // } else {
-                // if ( typeof val === 'string' ) {
-                //     this._data[val] = val.trim().trimEnd()
-                //     console.log(this)
-                //     return
-                // }
-                for(const key in val) {
-                    if(typeof  val[key] === 'string') {
-                        val[key] = val[key].trim().trimEnd()
-                    } else if (typeof val[key] === 'object') {
-                        this.trimTest(val[key])
+        test () {
+            const data = []
+            for (let i = 0; i < this.testData.length; i ++ ) {
+                let item = {}
+                item.key = this.testData[i].key
+                item.pops = this.testData[i].pops
+                item.windht = this.testData[i].key.length * 10
+                if (this.testData[i].isM) {
+                    item.fn = (data) => {
+                        return (
+                            <span>{ data / 100 }</span>
+                        )
                     }
                 }
-            // }
-            return val
-        },
-        test() {
-            this.radio < 3 ? this.radio++ : this.radio = 1
+                data.push(item)
+            }
+            this.colmns = data
+            console.log(this.colmns)
+
         }
     }
 }
