@@ -5,8 +5,7 @@
     </div>
     <div v-if="colmns.length > 0">
         <el-table>
-            <el-table-column v-for="item in colmns" :key="item.pops" :label="item.key">
-
+            <el-table-column v-for="item in colmns" :key="item.pops" :label="item.key"> 
             </el-table-column>
         </el-table>
     </div>
@@ -75,7 +74,6 @@ export default {
             }
             this.colmns = data
             console.log(this.colmns)
-
         }
     }
 }
